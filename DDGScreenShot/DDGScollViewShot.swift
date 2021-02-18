@@ -46,7 +46,7 @@ class DDGScollViewShot: UIViewController {
         leftBtn.setTitle("截ScrollImage", for: .normal)
         leftBtn.setTitleColor(UIColor.blue, for: .normal)
         leftBtn.addTarget(self, action: #selector(DDGScollViewShot.screenShotScroll), for: .touchUpInside)
-        leftBtn.frame = CGRect(x: 20, y: height - bottomMargint, width: (width - 60) / 2, height: 40)
+        leftBtn.frame = CGRect(x: 20, y: 100, width: 60, height: 40)
         self.view.addSubview(leftBtn)
         
         let rightBtn = UIButton()
@@ -54,7 +54,7 @@ class DDGScollViewShot: UIViewController {
         rightBtn.setTitle("清除", for: .normal)
         rightBtn.setTitleColor(UIColor.blue, for: .normal)
         rightBtn.addTarget(self, action: #selector(DDGScollViewShot.clearShotScreen), for: .touchUpInside)
-        rightBtn.frame = CGRect(x: (width - 60) / 2 + 40, y: height - bottomMargint, width: (width - 60) / 2, height: 40)
+        rightBtn.frame = CGRect(x: width - 60 - 20, y: 100, width: 60, height: 40)
         self.view.addSubview(rightBtn)
         
         activity = UIActivityIndicatorView()

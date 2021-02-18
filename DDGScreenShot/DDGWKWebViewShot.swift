@@ -14,11 +14,14 @@ class DDGWKWebViewShot: UIViewController ,WKUIDelegate,WKNavigationDelegate {
     var storeScrollView: UIScrollView!
     var storeImage: UIImageView! //保存截取的图片
     var activity: UIActivityIndicatorView!
+    
+    let navBarHeight = UIApplication.shared.statusBarFrame.size.height + 44;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         wkWebView = WKWebView()
-        wkWebView.frame = CGRect(x: 10, y: navHeight, width: width - 20 , height:height - navHeight - bottomMargint)
+        wkWebView.frame = CGRect(x: 10, y: navBarHeight, width: width - 20 , height:height - navBarHeight)
         self.view.addSubview(wkWebView)
         wkWebView.uiDelegate = self
         wkWebView.navigationDelegate = self
@@ -30,7 +33,7 @@ class DDGWKWebViewShot: UIViewController ,WKUIDelegate,WKNavigationDelegate {
         leftBtn.setTitle("截wkwebImage", for: .normal)
         leftBtn.setTitleColor(UIColor.blue, for: .normal)
         leftBtn.addTarget(self, action: #selector(DDGWKWebViewShot.screenShotWebView), for: .touchUpInside)
-        leftBtn.frame =  CGRect(x: 20, y: height - bottomMargint, width:(width - 60) / 2, height: 40)
+        leftBtn.frame = CGRect(x: 20, y: 100, width: 60, height: 40)
         self.view.addSubview(leftBtn)
         
         let rightBtn = UIButton()
@@ -38,7 +41,7 @@ class DDGWKWebViewShot: UIViewController ,WKUIDelegate,WKNavigationDelegate {
         rightBtn.setTitle("清除", for: .normal)
         rightBtn.setTitleColor(UIColor.blue, for: .normal)
         rightBtn.addTarget(self, action: #selector(DDGWKWebViewShot.clearShotScreen), for: .touchUpInside)
-        rightBtn.frame = CGRect(x: (width - 60) / 2 + 40, y: height - bottomMargint, width: (width - 60) / 2, height: 40)
+        rightBtn.frame = CGRect(x: width - 60 - 20, y: 100, width: 60, height: 40)
         self.view.addSubview(rightBtn)
         
         activity = UIActivityIndicatorView()
